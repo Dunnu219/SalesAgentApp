@@ -14,7 +14,9 @@ For the App to run the node modules need to be installed first by running a comm
 npm install
 in the terminal.
 
-Then ng serve would run the application on http://localhost:4200/ 
+Then command
+ng serve 
+would run the application on http://localhost:4200/ 
 
 Before running the UI, the API should be running as the UI interacts with the API.
 
