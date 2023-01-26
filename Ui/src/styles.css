@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+h3.sectionHeading {
+  color: red;
+  font-size: 1.2em;
+}
+
+div.bookedForm h3.sectionHeading {
+  color: #007BFF
+}
+
+h1.sectionHeading {
+  font-size: 1.2em;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+label {
+  font-weight: 500;
+}
+
+.display-only p {
+  margin: 0 0 0.3em 0;
+}
+
+.display-only p label {
+  margin: 0;
+}
+
+.display-only label {
+  width: 13em;
+}
+
+.radioPanel {
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+p.checkboxArray {
+  margin: 0.2em;
+}
+
+.is-required {
+  border: 1px solid #DC3545;
+}
+
+.is-valid {
+  border: 1px solid #28A745;
+}
+
+th {
+  font-family: 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
+.information {
+  margin-top: 1em;
+  color: #007BFF;
+}
+
+.buttonPanel {
+  text-align: right;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}

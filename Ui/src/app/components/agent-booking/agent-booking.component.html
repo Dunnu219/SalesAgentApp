@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="information">
+                        <h1 class="text-center">{{title}}</h1>
+                    </div>
+                </div>
+                <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" id="bookingForm" autocomplete="off">
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <label>Booking Date: {{agentBooking.bookingDate}}</label>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>Day: {{agentBooking.day}}</label>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>Start Time: {{agentBooking.startTime}}</label>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>End Time: {{agentBooking.endTime}}</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <label>Agent Name: {{agentBooking.agentName}}</label>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>Booking By:</label>
+                                <input type="text" id="bookingBy" formControlName="bookingBy" [ngClass]="{'is-valid':bookingForm.get('bookingBy')!.valid && bookingForm.get('bookingBy')!.touched, 'is-invalid':!bookingForm.get('bookingBy')!.valid && bookingForm.get('bookingBy')!.touched}">
+                                <span class="text-danger" *ngIf="bookingForm.get('bookingBy')!.touched && bookingForm.get('bookingBy')!.hasError('required')">
+                                    {{messageRequired}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>Booking Message:</label>
+                                <input type="text" id="bookingMessage" formControlName="bookingMessage" [ngClass]="{'is-valid':bookingForm.get('bookingMessage')!.valid && bookingForm.get('bookingMessage')!.touched, 'is-invalid':!bookingForm.get('bookingMessage')!.valid && bookingForm.get('bookingMessage')!.touched}">
+                                <span class="text-danger" *ngIf="bookingForm.get('bookingMessage')!.touched && bookingForm.get('bookingMessage')!.hasError('required')">
+                                    {{messageRequired}}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <button type="submit" class="btn btn-outline-primary">Confirm Booking</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="onClose()">Close</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+

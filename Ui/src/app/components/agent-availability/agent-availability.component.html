@@ -1,0 +1,79 @@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-md-10">
+                <form [formGroup]="salesAgentAvailabilityForm" (ngSubmit)="onSubmit()" id="salesAgentAvailabilityForm" autocomplete="off">
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <label>Start Date:</label>
+                                <input type="date" id="startDate" formControlName="startDate" class="form-control form-control-sm" [ngClass]="{'is-valid':salesAgentAvailabilityForm.get('startDate')!.valid && salesAgentAvailabilityForm.get('startDate')!.touched, 'is-invalid':!salesAgentAvailabilityForm.get('startDate')!.valid && salesAgentAvailabilityForm.get('startDate')!.touched}">
+                                <span class="text-danger" *ngIf="salesAgentAvailabilityForm.get('startDate')!.touched && salesAgentAvailabilityForm.get('startDate')!.hasError('required')">
+                                    {{messageRequired}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>End Date:</label>
+                                <input type="date" id="endDate" formControlName="endDate" class="form-control form-control-sm" [ngClass]="{'is-valid':salesAgentAvailabilityForm.get('endDate')!.valid && salesAgentAvailabilityForm.get('endDate')!.touched, 'is-invalid':!salesAgentAvailabilityForm.get('endDate')!.valid && salesAgentAvailabilityForm.get('endDate')!.touched}">
+                                <span class="text-danger" *ngIf="salesAgentAvailabilityForm.get('endDate')!.touched && salesAgentAvailabilityForm.get('endDate')!.hasError('required')">
+                                    {{messageRequired}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label>Agent Name: </label>
+                                <select id ="agentName" formControlName="agentName" class="custom-select custom-select-sm app-select">
+                                    <option [ngValue]="null" disabled>Select Agent Name</option>
+                                        <option *ngFor="let dt of agents" [ngValue]="dt.agentId">
+                                            {{dt.agentName}}
+                                        </option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <button type="submit" class="btn btn-outline-primary">Search</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" [ngStyle]="{'display': displayStyle}">
+                        <div class="information">
+                            <p>
+                                <label>The booking is confirmed. The booking id is {{bookingId}}</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table table-sm table-hover table-bordered" *ngIf="agentAvailabiltyResponse!.length>0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Available Dates</th>
+                                    <th scope="col">Day</th>
+                                    <th scope="col">Start Time</th>
+                                    <th scope="col">End Time</th>
+                                    <th scope="col">Agent Name</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let agentAvailability of agentAvailabiltyResponse;let i=index">
+                                    <td>{{agentAvailability.availableDate}}</td>
+                                    <td>{{agentAvailability.dayValue}}</td>
+                                    <td>{{agentAvailability.agentName}}</td>
+                                    <td>{{agentAvailability.startTime}}</td>
+                                    <td>{{agentAvailability.endTime}}</td>
+                                    <td>
+                                        <button type="button" (click)="openBooking(i)" class="btn btn-outline-primary">Book</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
