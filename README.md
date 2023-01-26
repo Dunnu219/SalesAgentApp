@@ -43,7 +43,7 @@ The appsettings file
   "AllowedHosts": "*"
 }
 
-The "SqlConnection": "Server=.\SQLEXPRESS;Database=AgentBooking; Integrated Security=true;encrypt=false" bit needs to be updated.
+The "SqlConnection": "Server=.\SQLEXPRESS;Database=AgentBooking; Integrated Security=true;encrypt=false" bit needs to be updated accordingly to connect to the database.
 
 
 # SQL
